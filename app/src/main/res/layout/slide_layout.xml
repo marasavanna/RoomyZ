@@ -8,7 +8,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/circle"
         android:padding="32dp"
         android:src="@drawable/home" />
@@ -37,13 +37,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:src="@drawable/facebook_login" />
+            android:src="@drawable/facebook_login"
+            android:layout_gravity="right"/>
 
         <ImageView
             android:id="@+id/google_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:layout_gravity="left"
             android:src="@drawable/google_login" />
 
     </LinearLayout>
