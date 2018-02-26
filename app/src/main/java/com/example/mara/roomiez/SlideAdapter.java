@@ -13,13 +13,21 @@ import android.widget.TextView;
  * Created by Mara on 2/25/2018.
  */
 
-public class SlideAdapter extends PagerAdapter {
+public class SlideAdapter extends PagerAdapter implements View.OnClickListener{
 
     private Context ctx;
     private LayoutInflater layoutInflater;
+    private View.OnClickListener onClickGoogle;
+    private View.OnClickListener onClickFacebook;
 
     public SlideAdapter(Context ctx) {
         this.ctx = ctx;
+    }
+
+    public SlideAdapter(Context ctx, View.OnClickListener onClickGoogle, View.OnClickListener onClickFacebook) {
+        this.ctx = ctx;
+        this.onClickGoogle = onClickGoogle;
+        this.onClickFacebook = onClickFacebook;
     }
 
     public int[] slide_images = {R.drawable.deal, R.drawable.home, R.drawable.roomies};
@@ -49,6 +57,8 @@ public class SlideAdapter extends PagerAdapter {
 
         slideImageView.setImageResource(slide_images[position]);
         slideTextView.setText(slide_texts[position]);
+        v.findViewById(R.id.google_login).setOnClickListener(onClickGoogle);
+        v.findViewById(R.id.facebook_login).setOnClickListener(onClickFacebook);
 
         container.addView(v);
 
@@ -58,5 +68,10 @@ public class SlideAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((RelativeLayout) object);
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }
