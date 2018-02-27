@@ -11,6 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -20,19 +26,38 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
+    private static final int REQUEST_CODE_GOOGLE = 1;
     private ViewPager viewPager;
     private LinearLayout dots;
     private SlideAdapter adapter;
     private TextView[] myDots;
+    ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+        }
 
+        @Override
+        public void onPageSelected(int position) {
+            addDotsIndicator(position);
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
     private FirebaseAuth auth;
     private GoogleSignInClient googleSignInClient;
+    private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         googleSignIn();
+        callbackManager = CallbackManager.Factory.create();
 
         adapter = new SlideAdapter(this, new View.OnClickListener() {
             @Override
@@ -52,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        startActivityForResult(googleSignInClient.getSignInIntent(), 1);
+                        startActivityForResult(googleSignInClient.getSignInIntent(), REQUEST_CODE_GOOGLE);
                     }
                 });
 
@@ -61,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "FacebookLogin", Toast.LENGTH_SHORT).show();
+                loginWithFacebook();
             }
         });
 
@@ -76,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
             switch (requestCode){
-                case 1: {
+                case REQUEST_CODE_GOOGLE: {
                     GoogleSignInResult res = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
                     if(res.isSuccess()){
                         AuthCredential credential = GoogleAuthProvider.getCredential(res.getSignInAccount().getIdToken(), null);
@@ -93,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     break;
                 }
+                default:
+                    callbackManager.onActivityResult(requestCode, resultCode, data);
             }
     }
 
@@ -104,6 +133,25 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
+    }
+
+    private void loginWithFacebook() {
+        LoginManager loginFacebook = LoginManager.getInstance();
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "user_photos", "public_profile"));
+        loginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+            }
+        });
     }
 
     public void addDotsIndicator(int position) {
@@ -129,20 +177,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    private void handleFacebookAccessToken(AccessToken token) {
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        auth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            //TODO: Facebook login successful
+                        } else {
+                            Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
 
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            addDotsIndicator(position);
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-
-        }
-    };
+                    }
+                });
+    }
 }

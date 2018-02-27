@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">RoomieZ</string>
-
     <string name="text_rent">Give your apartment to rent or rent an apartment without any agencies!</string>
+    <string name="facebook_app_id">192635631337567</string>
+    <string name="fb_login_protocol_scheme">fb192635631337567</string>
+
 </resources>
