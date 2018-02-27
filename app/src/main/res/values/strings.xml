@@ -4,4 +4,9 @@
     <string name="facebook_app_id">192635631337567</string>
     <string name="fb_login_protocol_scheme">fb192635631337567</string>
 
+    <string name="dummie_name">Mara Savan, 21</string>
+    <string name="my_profile">My Profile</string>
+    <string name="wish_list">Wish List</string>
+    <string name="messages">Messages</string>
+
 </resources>

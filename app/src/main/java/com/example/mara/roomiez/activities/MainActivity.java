@@ -1,4 +1,4 @@
-package com.example.mara.roomiez;
+package com.example.mara.roomiez.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,8 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.example.mara.roomiez.R;
+import com.example.mara.roomiez.adapters.SlideAdapter;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        startActivityForResult(googleSignInClient.getSignInIntent(), REQUEST_CODE_GOOGLE);
+                        startActivityForResult(googleSignInClient.getSignInIntent(), 1);
                     }
                 });
 
@@ -97,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(viewListener);
 
+        if(auth.getCurrentUser() != null) {
+            startActivity(new Intent(this, TabNavigationActivity.class));
+            finish();
+        }
+
     }
 
     @Override
@@ -111,7 +118,10 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG).show();
+                                    if(auth.getCurrentUser() != null) {
+                                        startActivity(new Intent(MainActivity.this, TabNavigationActivity.class));
+                                        finish();
+                                    }
                                 }else{
                                     Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                                 }
@@ -142,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 handleFacebookAccessToken(loginResult.getAccessToken());
+
             }
 
             @Override
@@ -184,7 +195,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            //TODO: Facebook login successful
+                                startActivity(new Intent(MainActivity.this, TabNavigationActivity.class));
+                                finish();
                         } else {
                             Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }

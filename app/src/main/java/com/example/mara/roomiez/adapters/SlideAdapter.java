@@ -1,4 +1,4 @@
-package com.example.mara.roomiez;
+package com.example.mara.roomiez.adapters;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.mara.roomiez.R;
 
 /**
  * Created by Mara on 2/25/2018.

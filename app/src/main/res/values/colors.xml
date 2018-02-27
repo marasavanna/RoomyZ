@@ -6,4 +6,13 @@
     <color name="white">#FFFFFF</color>
     <color name="transparentWhite">#cccccc</color>
 
+    <color name = "cardViewGrey">#335E878D</color>
+    <color name = "tabViewGrey">#0D5E878D</color>
+    <color name = "buttonGrey">#335E878D</color>
+    <color name="buttonAdd">#995E878D</color>
+    <color name="editAdd">#CC5E878D</color>
+    <color name = "gray">#E7E2E2</color>
+    <color name = "mountain_gray">#414653</color>
+    <color name = "mountain_gray_transparent">#4146538D</color>
+
 </resources>
