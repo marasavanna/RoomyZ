@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.mara.roomiez.R;
 import com.example.mara.roomiez.adapters.ViewPagerAdapter;
+import com.example.mara.roomiez.fragments.ApartamentsFragment;
 import com.example.mara.roomiez.fragments.ProfileFragment;
 
 public class TabNavigationActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
@@ -28,6 +29,8 @@ public class TabNavigationActivity extends AppCompatActivity implements TabLayou
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new ProfileFragment());
+        adapter.addFragment(new ApartamentsFragment());
+
 
         container.setAdapter(adapter);
         tabLayout.setupWithViewPager(container);
@@ -41,7 +44,7 @@ public class TabNavigationActivity extends AppCompatActivity implements TabLayou
 
     public void setUpTabIcons(){
         tabLayout.getTabAt(0).setIcon(R.drawable.unselected_user);
-       // tabLayout.getTabAt(1).setIcon(R.drawable.unselected_settings);
+        tabLayout.getTabAt(1).setIcon(R.drawable.unselected_house);
     }
 
     @Override
@@ -50,10 +53,10 @@ public class TabNavigationActivity extends AppCompatActivity implements TabLayou
             case 0:
                 tab.setIcon(R.drawable.selected_user);
                 break;
-           /* case 1:
-                tab.setIcon(R.drawable.selected_settings);
+           case 1:
+                tab.setIcon(R.drawable.selected_house);
                 break;
-                */
+
         }
     }
 
@@ -63,10 +66,10 @@ public class TabNavigationActivity extends AppCompatActivity implements TabLayou
             case 0:
                 tab.setIcon(R.drawable.unselected_user);
                 break;
-            /*case 1:
-                tab.setIcon(R.drawable.unselected_settings);
+            case 1:
+                tab.setIcon(R.drawable.unselected_house);
                 break;
-                */
+
         }
     }
 
