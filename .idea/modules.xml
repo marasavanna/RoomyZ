@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RoomieZ2.iml" filepath="$PROJECT_DIR$/RoomieZ2.iml" />
-      <module fileurl="file://C:\Users\Mara\AndroidStudioProjects\RoomieZ2\.idea\RoomyZ.iml" filepath="C:\Users\Mara\AndroidStudioProjects\RoomieZ2\.idea\RoomyZ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RoomyZ.iml" filepath="$PROJECT_DIR$/RoomyZ.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
