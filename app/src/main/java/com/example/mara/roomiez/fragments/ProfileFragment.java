@@ -13,6 +13,10 @@ import android.widget.ImageView;
 
 import com.example.mara.roomiez.R;
 import com.example.mara.roomiez.activities.MainActivity;
+import com.facebook.login.LoginManager;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
@@ -55,7 +59,19 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         switch(view.getId()){
             case R.id.log_out:{
+
+                //Firebase signOut()
                 auth.signOut();
+                //Facebook signOut()
+                LoginManager.getInstance().logOut();
+                //Google signOut() -_-
+                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                        .requestIdToken(getString(R.string.default_web_client_id))
+                        .requestEmail()
+                        .build();
+                GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(getContext(), gso);
+                googleSignInClient.signOut();
+
                 startActivity(new Intent(getActivity(), MainActivity.class));
                 getActivity().finish();
                 break;
