@@ -4,9 +4,24 @@
     <string name="facebook_app_id">192635631337567</string>
     <string name="fb_login_protocol_scheme">fb192635631337567</string>
 
-    <string name="dummie_name">Mara Savan, 21</string>
+    <string name="dummie_name">Mara Savan</string>
+    <string name="dummie_age">21</string>
+    <string name="dummie_location">Current city: Cluj-Napoca</string>
+
+    <string name="city_hint">Desired City</string>
+    <string name="numbers_hint">Number Of Rooms</string>
+    <string name="real_estate_hint">Type Of Real Estate</string>
+
     <string name="my_profile">My Profile</string>
     <string name="wish_list">Wish List</string>
     <string name="messages">Messages</string>
+
+
+    <string-array name="estate_types">
+
+        <item>Apartment</item>
+        <item>House</item>
+        <item>Dorm</item>
+    </string-array>
 
 </resources>

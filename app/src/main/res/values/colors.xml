@@ -13,6 +13,15 @@
     <color name="editAdd">#CC5E878D</color>
     <color name = "gray">#E7E2E2</color>
     <color name = "mountain_gray">#414653</color>
+
     <color name = "mountain_gray_transparent">#4146538D</color>
+
+
+    <color name = "mountain_dark_15">#26252A36</color>
+    <color name = "mountain_dark_25">#40252A36</color>
+    <color name = "mountain_dark_35">#59252A36</color>
+    <color name = "mountain_dark_45">#73252A36</color>
+    <color name = "mountain_dark_55">#8C252A36</color>
+    <color name = "mountain_dark">#252A36</color>
 
 </resources>

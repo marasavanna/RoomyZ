@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.example.mara.roomiez.R;
 import com.example.mara.roomiez.activities.MainActivity;
+import com.example.mara.roomiez.activities.UserDescriptionActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
@@ -48,6 +49,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         profileImg = getActivity().findViewById(R.id.user_photo);
         Picasso.with(getContext()).load(auth.getCurrentUser().getPhotoUrl()).into(profileImg);
 
+        goToProfile = getActivity().findViewById(R.id.go_to_profile_arrow);
+        goToProfile.setOnClickListener(this);
+
     }
 
     @Override
@@ -58,6 +62,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 auth.signOut();
                 startActivity(new Intent(getActivity(), MainActivity.class));
                 getActivity().finish();
+                break;
+            }
+
+            case R.id.go_to_profile_arrow:{
+                startActivity(new Intent(getActivity(), UserDescriptionActivity.class));
                 break;
             }
         }
