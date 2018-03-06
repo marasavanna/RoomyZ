@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.mara.roomiez.activities.FinderActivity">
 
-    <com.wenchao.cardstack.CardStack
+    <!--<com.wenchao.cardstack.CardStack-->
+    <!--android:id="@+id/stack_apartments"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:clipToPadding="false"-->
+    <!--android:clipChildren="false"-->
+    <!--android:layout_height="match_parent" />-->
+
+    <com.yuyakaido.android.cardstackview.CardStackView
         android:id="@+id/stack_apartments"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:elevationEnabled="false"
+        app:leftOverlay="@layout/ignore"
+        app:rightOverlay="@layout/add_to_wishlist"
+        app:swipeDirection="horizontal" />
 
 </android.support.constraint.ConstraintLayout>

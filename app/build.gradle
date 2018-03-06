@@ -36,6 +36,7 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:4.30.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.wenchaojiang:AndroidSwipeableCardStack:0.1.0'
+    implementation "com.yuyakaido.android:card-stack-view:1.0.0-beta8"
 }
 
 
