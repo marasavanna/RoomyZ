@@ -11,14 +11,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mara.roomiez.R;
+import com.example.mara.roomiez.adapters.SlideAdapter;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.example.mara.roomiez.R;
-import com.example.mara.roomiez.adapters.SlideAdapter;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -74,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
         googleSignIn();
         callbackManager = CallbackManager.Factory.create();
 
+        //Facebook signOut()
+        LoginManager.getInstance().logOut();
+        //Google signOut()
+        googleSignInClient.signOut();
+
         adapter = new SlideAdapter(this, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,10 +123,8 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    if(auth.getCurrentUser() != null) {
                                         startActivity(new Intent(MainActivity.this, TabNavigationActivity.class));
                                         finish();
-                                    }
                                 }else{
                                     Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                                 }
