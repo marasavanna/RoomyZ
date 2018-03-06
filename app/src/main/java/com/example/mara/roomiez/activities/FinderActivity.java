@@ -1,5 +1,6 @@
 package com.example.mara.roomiez.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -50,6 +51,6 @@ public class FinderActivity extends AppCompatActivity implements CardStackView.C
 
     @Override
     public void onCardClicked(int index) {
-
+        startActivity(new Intent(this, ApartmentDetailsActivity.class));
     }
 }
