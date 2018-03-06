@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.mara.roomiez.R;
 import com.example.mara.roomiez.adapters.ViewPagerAdapter;
-import com.example.mara.roomiez.fragments.ApartamentsFragment;
+import com.example.mara.roomiez.fragments.ApartmentsFragment;
 import com.example.mara.roomiez.fragments.ProfileFragment;
 
 public class TabNavigationActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
@@ -29,7 +29,7 @@ public class TabNavigationActivity extends AppCompatActivity implements TabLayou
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new ProfileFragment());
-        adapter.addFragment(new ApartamentsFragment());
+        adapter.addFragment(new ApartmentsFragment());
 
 
         container.setAdapter(adapter);

@@ -17,7 +17,7 @@ public class UserDescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_description);
 
         estateTypeSpinner = findViewById(R.id.type_real_estate_spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.estate_types));
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
