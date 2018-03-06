@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mara.roomiez">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,7 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <activity
             android:name=".activities.MainActivity"
             android:screenOrientation="portrait">
@@ -41,8 +43,15 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TabNavigationActivity" />
-        <activity android:name=".activities.UserDescriptionActivity"></activity>
+        <activity
+            android:name=".activities.TabNavigationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.UserDescriptionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.FinderActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

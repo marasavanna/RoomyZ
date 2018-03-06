@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         }, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "FacebookLogin", Toast.LENGTH_SHORT).show();
                 loginWithFacebook();
             }
         });
