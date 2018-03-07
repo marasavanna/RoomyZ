@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.example.mara.roomiez.R;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Akitektuo on 06.03.2018.
@@ -17,8 +19,11 @@ import com.example.mara.roomiez.R;
 
 public class CardAdapter extends ArrayAdapter<Integer> {
 
+    private Context context;
+
     public CardAdapter(@NonNull Context context) {
         super(context, 0);
+        this.context = context;
     }
 
     @NonNull
@@ -35,7 +40,8 @@ public class CardAdapter extends ArrayAdapter<Integer> {
         } else {
             holder = (ViewHolder) contentView.getTag();
         }
-        holder.image.setImageResource(getItem(position));
+        Picasso.with(context).load(getItem(position)).memoryPolicy(MemoryPolicy.NO_CACHE).into(holder.image);
+//        holder.image.setImageResource(getItem(position));
         return contentView;
     }
 

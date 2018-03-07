@@ -20,9 +20,15 @@ public class FinderActivity extends AppCompatActivity implements CardStackView.C
         setContentView(R.layout.activity_finder);
 
         cardAdapter = new CardAdapter(this);
-        cardAdapter.add(R.drawable.card_1);
-        cardAdapter.add(R.drawable.card_2);
-        cardAdapter.add(R.drawable.card_3);
+        cardAdapter.add(R.drawable.apartment_1);
+        cardAdapter.add(R.drawable.apartment_2);
+        cardAdapter.add(R.drawable.apartment_3);
+        cardAdapter.add(R.drawable.apartment_4);
+        cardAdapter.add(R.drawable.apartment_5);
+        cardAdapter.add(R.drawable.apartment_6);
+        cardAdapter.add(R.drawable.apartment_7);
+        cardAdapter.add(R.drawable.apartment_8);
+        cardAdapter.add(R.drawable.apartment_9);
 
         cards = findViewById(R.id.stack_apartments);
         cards.setAdapter(cardAdapter);

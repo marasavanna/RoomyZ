@@ -57,8 +57,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        switch(view.getId()){
-            case R.id.log_out:{
+        switch (view.getId()) {
+            case R.id.log_out: {
 
                 //Firebase signOut()
                 auth.signOut();
@@ -67,7 +67,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 getActivity().finish();
                 break;
             }
-            case R.id.go_to_profile_arrow:{
+            case R.id.go_to_profile_arrow: {
                 startActivity(new Intent(getActivity(), UserDescriptionActivity.class));
                 break;
             }
