@@ -41,7 +41,7 @@
                     android:id="@+id/text_detailed_rooms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of rooms:"
+                    android:text="@string/rooms"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -64,7 +64,7 @@
                     android:id="@+id/text_detailed_neighborhood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Neighborhood:"
+                    android:text="@string/neighborhood"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -87,7 +87,7 @@
                     android:id="@+id/text_detailed_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Price:"
+                    android:text="@string/price"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -110,7 +110,7 @@
                     android:id="@+id/text_detailed_surface"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Surface:"
+                    android:text="@string/surface"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -133,7 +133,7 @@
                     android:id="@+id/text_detailed_bathrooms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of bathrooms:"
+                    android:text="@string/bathrooms"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -156,7 +156,7 @@
                     android:id="@+id/text_detailed_balcony"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of balconies:"
+                    android:text="@string/balconies"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -179,7 +179,7 @@
                     android:id="@+id/text_detailed_parking"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Parking:"
+                    android:text="@string/parking"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -202,7 +202,7 @@
                     android:id="@+id/text_detailed_pets"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pets allowed:"
+                    android:text="@string/pets"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -224,7 +224,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description:"
+                    android:text="@string/description"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 

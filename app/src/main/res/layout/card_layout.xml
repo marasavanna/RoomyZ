@@ -33,10 +33,10 @@
                 android:src="@drawable/rooms" />
 
             <TextView
-                android:id="@+id/text_detailed_rooms"
+                android:id="@+id/text_card_rooms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number of rooms:"
+                android:text="@string/rooms"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -56,10 +56,10 @@
                 android:src="@drawable/neighborhood" />
 
             <TextView
-                android:id="@+id/text_detailed_neighborhood"
+                android:id="@+id/text_card_neighborhood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Neighborhood:"
+                android:text="@string/neighborhood"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -79,10 +79,10 @@
                 android:src="@drawable/price" />
 
             <TextView
-                android:id="@+id/text_detailed_price"
+                android:id="@+id/text_card_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price:"
+                android:text="@string/price"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 

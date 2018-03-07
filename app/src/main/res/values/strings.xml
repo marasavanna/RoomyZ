@@ -24,4 +24,15 @@
         <item>Dorm</item>
     </string-array>
 
+    <string name="rooms">Number of rooms: %1$d</string>
+    <string name="neighborhood">Neighborhood: %1$s</string>
+    <string name="price">Price: %1$.2f %2$s</string>
+    <string name="surface">Surface: %1$.1f \u33A1</string>
+    <string name="bathrooms">Number of bathrooms: %1$d</string>
+    <string name="balconies">Number of balconies: %1$d</string>
+    <string name="parking">Has parking: %1$s</string>
+    <string name="pets">Pets allowed: %1$s</string>
+    <string name="description">Description:</string>
+    <string name="long_string">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae odio eget neque elementum commodo. Aliquam erat volutpat. Sed cursus tristique diam, congue porttitor massa vehicula ac. Phasellus lorem nunc, ultricies ac mi eget, cursus molestie ipsum. Nunc lobortis erat vel facilisis vestibulum. Mauris varius eu mauris sed ultricies. Aenean vel aliquet risus. Ut et maximus turpis, ac efficitur massa. Vestibulum in tortor faucibus, varius augue vitae, condimentum nisl. Morbi pretium in nisl semper venenatis. Nullam cursus vehicula orci et finibus.\n\nNam iaculis vitae urna et maximus. Quisque placerat lacinia libero ut iaculis. Suspendisse suscipit cursus neque in consequat. Pellentesque ut vestibulum ex. Sed nec nunc varius, imperdiet est et, vulputate mi. Donec eget tincidunt risus. Integer mollis dui risus. Aliquam pretium blandit risus eu accumsan. Nunc pretium nunc eu ipsum facilisis, tristique sagittis urna mollis. Praesent quis magna at erat sodales malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus eu lorem commodo, eleifend eros a, tincidunt urna. Praesent eu viverra est.</string>
+
 </resources>
