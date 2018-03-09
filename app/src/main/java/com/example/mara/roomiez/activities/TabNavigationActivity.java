@@ -2,6 +2,7 @@ package com.example.mara.roomiez.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
@@ -37,8 +38,8 @@ public class TabNavigationActivity extends AppCompatActivity implements TabLayou
         tabLayout.addOnTabSelectedListener(this);
         setUpTabIcons();
 
-
-
+        ActivityCompat.requestPermissions(TabNavigationActivity.this,
+                new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
 
     }
 

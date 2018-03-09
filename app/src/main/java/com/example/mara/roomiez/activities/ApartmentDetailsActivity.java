@@ -1,9 +1,18 @@
 package com.example.mara.roomiez.activities;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,8 +21,10 @@ import com.example.mara.roomiez.R;
 import com.example.mara.roomiez.adapters.GalleryAdapter;
 import com.example.mara.roomiez.database.model.Apartment;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 
@@ -79,6 +90,18 @@ public class ApartmentDetailsActivity extends AppCompatActivity implements View.
         textParking.setText(getString(R.string.parking, apartment.parking ? "YES" : "NO"));
         textPets.setText(getString(R.string.pets, apartment.pets ? "YES" : "NO"));
         textDescription.setText(apartment.description);
+
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        for (String provider : locationManager.getAllProviders()) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            System.out.println("Location is " + locationManager.getLastKnownLocation(provider).getLatitude());
+            Location location = locationManager.getLastKnownLocation(provider);
+            getAddress(location.getLatitude(), location.getLongitude());
+        }
+
     }
 
     @Override
@@ -93,4 +116,31 @@ public class ApartmentDetailsActivity extends AppCompatActivity implements View.
     private void toast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
+
+    public void getAddress(double lat, double lng) {
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(lat, lng, 1);
+            Address obj = addresses.get(0);
+            String add = obj.getAddressLine(0);
+            add = add + "\n" + obj.getCountryName();
+            add = add + "\n" + obj.getCountryCode();
+            add = add + "\n" + obj.getAdminArea();
+            add = add + "\n" + obj.getPostalCode();
+            add = add + "\n" + obj.getSubAdminArea();
+            add = add + "\n" + obj.getLocality();
+            add = add + "\n" + obj.getSubThoroughfare();
+
+            Log.v("IGA", "Address" + add);
+            // Toast.makeText(this, "Address=>" + add,
+            // Toast.LENGTH_SHORT).show();
+
+            // TennisAppActivity.showDialog(add);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
