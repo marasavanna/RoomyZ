@@ -52,9 +52,6 @@
             android:name=".activities.UserDescriptionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.FinderActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activities.ApartmentDetailsActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activities.GalleryActivity"></activity>
